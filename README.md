@@ -5,8 +5,7 @@ Articles can only be publish from the /home page.
 The "/" page is what the readers see.
 The "/home" page is where you can edit, delete, and submit articles.
 Articles have 3 stages:
-Hot - Freshly posted and will only show a headline
-Warm - 12 hours after article is posted and will show a body now and become a clickable link to a dedicated page for the article.
+Hot - Freshly posted and will only show a headline & a summary.
 Cold - 24 hours after article is posted and will show the entire article, allowing time for the publisher to get the facts right.
 
 Future goals include:
