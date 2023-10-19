@@ -1,0 +1,84 @@
+/* Existing styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+}
+
+header {
+    background: #f4f4f4;
+    color: black;
+    text-align: center;
+    padding: 1em;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: black;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    background: #f4f4f4;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+label, input, textarea {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background: #333;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background: #555;
+}
+
+small {
+    color: #555;
+}
+
+/* New styles for article stages */
+
+.article-hot {
+    background-color: #ff4500;  /* reddish-orange */
+    transition: background-color 1h ease-in-out;
+}
+
+.article-warm {
+    background-color: #ffcc00;  /* yellowish-orange */
+    transition: background-color 1h ease-in-out;
+}
+
+.article-cold {
+    background-color: #483d8b;  /* blueish-purple */
+    transition: background-color 1h ease-in-out;
+}

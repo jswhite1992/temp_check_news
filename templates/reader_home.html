@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Check News</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>Temperature Check News</h1>
+</header>
+
+<h2>Articles</h2>
+<ul id="article-list">
+    {% for article in articles %}
+    <li class="article-{{ article[5].lower() }}">
+        {% if article[5] == 'Warm' or article[5] == 'Cold' %}
+        <a href="{{ url_for('view_article', article_id=article[0]) }}">
+        {% endif %}
+        <strong>{{ article[1] }}</strong>
+        {% if article[5] == 'Warm' or article[5] == 'Cold' %}
+        </a>
+        {% endif %}
+        ({{ article[5] }}) <small>Posted on: {{ article[4] | datetimeformat }}</small><br>
+        {% if article[5] == 'Warm' or article[5] == 'Cold' %}
+        {{ article[2] }} <br>
+        {% endif %}
+        {% if article[5] == 'Cold' %}
+        {{ article[3] }}
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

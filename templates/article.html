@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ article[1] }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<header>
+    <h1>{{ article[1] }}</h1>
+    <nav>
+        <a href="/">Home</a>
+    </nav>
+</header>
+
+<h2>Details</h2>
+<p><strong>Headline:</strong> {{ article[1] }}</p>
+<p><strong>Body:</strong> {{ article[2] }}</p>
+<p><strong>Facts:</strong> {{ article[3] }}</p>
+<p><strong>Posted on:</strong> {{ article[4] }}</p>
+<p><strong>Stage:</strong> {{ article[5] }}</p>
+
+</body>
+</html>

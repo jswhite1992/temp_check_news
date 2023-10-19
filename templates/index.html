@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit an Article</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("form").submit(function(event){
+                event.preventDefault();
+                var formData = {
+                    'headline': $('input[name=headline]').val(),
+                    'body': $('textarea[name=body]').val(),
+                    'facts': $('textarea[name=facts]').val()
+                };
+                $.ajax({
+                    type: 'POST',
+                    url: '/submit',
+                    data: formData,
+                    dataType: 'json',
+                    encode: true
+                }).done(function(data){
+                    alert(data.status);
+                    $("form").trigger("reset");
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+<header>
+    <h1>Temperature Check News</h1>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/submit">Submit an Article</a>
+    </nav>
+</header>
+
+<h2>Submit an Article</h2>
+
+<form action="/submit" method="post">
+    <label for="headline">Headline:</label><br>
+    <input type="text" id="headline" name="headline"><br>
+
+    <label for="body">Body:</label><br>
+    <textarea id="body" name="body"></textarea><br>
+
+    <label for="facts">Facts:</label><br>
+    <textarea id="facts" name="facts"></textarea><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
