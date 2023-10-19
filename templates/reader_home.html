@@ -3,6 +3,28 @@
 <head>
     <title>Temperature Check News</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        // Function to update the background color based on the elapsed time
+        function updateBackgroundColor() {
+            const now = new Date();
+            const articles = document.querySelectorAll('.article');
+            articles.forEach(article => {
+                const postedTime = new Date(article.getAttribute('data-timestamp'));
+                const elapsedTime = now - postedTime;
+                const maxTime = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+                const factor = Math.min(elapsedTime / maxTime, 1);
+                const red = Math.floor(255 * (1 - factor));
+                const blue = Math.floor(255 * factor);
+                article.style.backgroundColor = `rgb(${red}, 0, ${blue})`;
+            });
+        }
+        
+        // Update the background color every hour
+        setInterval(updateBackgroundColor, 3600000);
+        
+        // Update the background color immediately upon loading
+        window.addEventListener('load', updateBackgroundColor);
+    </script>
 </head>
 <body>
 
@@ -13,18 +35,11 @@
 <h2>Articles</h2>
 <ul id="article-list">
     {% for article in articles %}
-    <li class="article-{{ article[5].lower() }}">
-        {% if article[5] == 'Warm' or article[5] == 'Cold' %}
+    <li class="article" data-timestamp="{{ article[4] }}">
         <a href="{{ url_for('view_article', article_id=article[0]) }}">
-        {% endif %}
         <strong>{{ article[1] }}</strong>
-        {% if article[5] == 'Warm' or article[5] == 'Cold' %}
         </a>
-        {% endif %}
         ({{ article[5] }}) <small>Posted on: {{ article[4] | datetimeformat }}</small><br>
-        {% if article[5] == 'Warm' or article[5] == 'Cold' %}
-        {{ article[2] }} <br>
-        {% endif %}
         {% if article[5] == 'Cold' %}
         {{ article[3] }}
         {% endif %}

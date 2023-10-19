@@ -15,9 +15,11 @@
 
 <h2>Details</h2>
 <p><strong>Headline:</strong> {{ article[1] }}</p>
-<p><strong>Body:</strong> {{ article[2] }}</p>
+<p><strong>Summary:</strong> {{ article[2] }}</p> <!-- Changed from Body to Summary -->
+{% if article[5] == 'Cold' %}
 <p><strong>Facts:</strong> {{ article[3] }}</p>
-<p><strong>Posted on:</strong> {{ article[4] }}</p>
+{% endif %}
+<p><strong>Posted on:</strong> {{ article[4] | datetimeformat }}</p> <!-- Added datetimeformat filter -->
 <p><strong>Stage:</strong> {{ article[5] }}</p>
 
 </body>

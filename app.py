@@ -38,9 +38,7 @@ def update_article_stages(c):
         time_now = dt.now()
         time_diff = time_now - timestamp_dt
 
-        if stage == 'Hot' and time_diff > timedelta(hours=12):
-            c.execute("UPDATE articles SET stage='Warm' WHERE id=?", (article_id,))
-        elif stage == 'Warm' and time_diff > timedelta(hours=24):
+        if stage == 'Hot' and time_diff > timedelta(hours=24):
             c.execute("UPDATE articles SET stage='Cold' WHERE id=?", (article_id,))
 
 @app.route('/')

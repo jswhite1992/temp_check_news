@@ -10,7 +10,7 @@
                 event.preventDefault();
                 var formData = {
                     'headline': $('input[name=headline]').val(),
-                    'body': $('textarea[name=body]').val(),
+                    'summary': $('textarea[name=summary]').val(), <!-- Changed 'body' to 'summary' -->
                     'facts': $('textarea[name=facts]').val()
                 };
                 $.ajax({
@@ -43,8 +43,8 @@
     <label for="headline">Headline:</label><br>
     <input type="text" id="headline" name="headline"><br>
 
-    <label for="body">Body:</label><br>
-    <textarea id="body" name="body"></textarea><br>
+    <label for="summary">Summary:</label><br> <!-- Changed 'Body' to 'Summary' -->
+    <textarea id="summary" name="summary"></textarea><br> <!-- Changed 'body' to 'summary' -->
 
     <label for="facts">Facts:</label><br>
     <textarea id="facts" name="facts"></textarea><br>
